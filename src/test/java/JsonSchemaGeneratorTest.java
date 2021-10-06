@@ -1,3 +1,4 @@
+import org.apache.commons.io.FileUtils;
 import org.everit.json.schema.Schema;
 import org.everit.json.schema.ValidationException;
 import org.everit.json.schema.loader.SchemaLoader;
@@ -6,6 +7,9 @@ import org.json.JSONTokener;
 import org.junit.Assert;
 import org.junit.Test;
 import pe.joedayz.jsonschemagenerator.JsonSchemaGenerator;
+
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class JsonSchemaGeneratorTest {
 
@@ -22,6 +26,16 @@ public class JsonSchemaGeneratorTest {
         String json = "{\"name\":\"John\",\"age\":30,\"cars\":[\"Ford\", \"BMW\", \"Fiat\"]}";
         String result = JsonSchemaGenerator.outputAsString("Schedule", "Test",json);
         Assert.assertTrue(isValid(json, result));
+    }
+
+
+    @Test
+    public void shouldWriteJsonSchemaToFile() throws Exception {
+        String file = "src/main/resources/venues-app-instance.json";
+        String json = new String(Files.readAllBytes(Paths.get(file)));
+        String filename = "output-schema.json";
+        JsonSchemaGenerator.outputAsFile("Schedule", "Test",json, filename);
+        Assert.assertTrue(FileUtils.getFile(filename).exists());
     }
 
     @Test

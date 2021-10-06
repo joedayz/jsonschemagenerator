@@ -1,0 +1,1 @@
+{"title":"Schedule","description":"Test","type":"object","properties":{"languages":{"type":"object","properties":{"French":{"type":"string"},"German":{"type":"string"},"Spanish":{"type":"string"}}},"hobbies":{"type":"array","items":{}},"name":{"type":"string"},"age":{"type":"number"}}}
