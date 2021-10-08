@@ -1,1 +1,0 @@
-{"title":"Schedule","description":"Test","type":"object","properties":{"limits":{"type":"object","properties":{"maximum":{"type":"number"},"minimum":{"type":"number"}}}}}
