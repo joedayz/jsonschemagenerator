@@ -89,6 +89,9 @@ public class JsonSchemaGenerator {
                 result.append(outputAsString(null, null, node.toString(), JsonNodeType.OBJECT));
                 result.append("},");
                 break;
+            case NULL:
+                result.append("null\" },");
+                break;
             case STRING:
                 result.append("string\" },");
                 break;
