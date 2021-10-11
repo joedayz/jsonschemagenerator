@@ -29,4 +29,19 @@ public class GenSchemaUtilsTests {
         assertTrue(p3.getExamples().contains("foobar"));
         assertTrue(p3.getExamples().contains(22));
     }
+
+    @Test
+    public void deeperPropertyMergeTestSymmetric(){
+        Property p1 = new Property("#/p1","object",null);
+        Property p2 = new Property("#/p1","object",null);
+        p1.addChildProperty("p2",new Property("#/p1/properties/p2","string","foobar2"));
+        p2.addChildProperty("p2",new Property("#/p1/properties/p2","string","dog2"));
+        Property p3 = GenSchemaUtils.merge(p1,p2);
+        assertEquals("#/p1",p3.getId());
+        assertEquals("object",p3.getType());
+        assertEquals(1,p3.getProperties().size());
+        assertEquals("#/p1/properties/p2",p3.getProperty("p2").getId());
+        assertTrue(p3.getProperty("p2").getExamples().contains("foobar2"));
+        assertTrue(p3.getProperty("p2").getExamples().contains("dog2"));
+    }
 }
