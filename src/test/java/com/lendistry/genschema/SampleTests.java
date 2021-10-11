@@ -18,6 +18,15 @@ public class SampleTests {
         }
     }
 
+
+    @Test
+    public void testRealWorld() throws Exception {
+        File[] files = new File("samples"+File.separator+"lendistry").listFiles((dir, name) -> name.endsWith(".json"));
+        for(File f : files) {
+            runTest(f);
+        }
+    }
+
     private void runTest(File f) throws IOException {
         Object data = GenSchemaUtils.deserializeJsonPayload(f);
         GenSchema genSchema = new GenSchema();
