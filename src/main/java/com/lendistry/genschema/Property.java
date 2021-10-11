@@ -3,6 +3,7 @@ package com.lendistry.genschema;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.common.collect.Sets;
 
 import java.util.*;
 
@@ -187,6 +188,25 @@ public class Property implements Cloneable {
         return type == null || type instanceof String;
     }
 
+    /**
+     * Inits the examples collection, if necessary, and adds a set of examples
+     * @param set a set of examples
+     */
+    public void addExamples(Set set){
+        if(examples == null)
+            examples = new HashSet<>();
+        examples.addAll(set);
+    }
+
+
+    /**
+     * Finds common items between this object's "required" set, and the proposed set of required keys
+     * @param required a set of strings
+     */
+    public void intersectRequires(Set<String> required){
+        if(this.required != null && required != null)
+            this.required = Sets.intersection(this.required, required);
+    }
 
     public String getId() {
         return this.id;
@@ -221,7 +241,9 @@ public class Property implements Cloneable {
         this.properties = properties;
     }
 
-
+    public void setItems(Property items){
+        this.items = items;
+    }
     public Property getItems() {
         return items;
     }
@@ -232,6 +254,14 @@ public class Property implements Cloneable {
 
     public void setAnyOf(List<Property> anyOf) {
         this.anyOf = anyOf;
+    }
+
+    public boolean hasAnyOf(){
+        return anyOf != null;
+    }
+
+    public List<Property> getAnyOf(){
+        return anyOf;
     }
 
     public void setRequired(Set<String> required) {
@@ -255,6 +285,8 @@ public class Property implements Cloneable {
             properties.entrySet().forEach(entry -> property.addChildProperty(entry.getKey(), entry.getValue().clone()));
         return property;
     }
+
+
 
 
 }

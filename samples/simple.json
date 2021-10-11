@@ -1,0 +1,16 @@
+{
+  "id": 511,
+  "name": "My stuff",
+  "description": "I love it",
+  "price": 1.99,
+  "attributes":{
+    "sale":false,
+    "fast_shipping":true
+  },
+  "variants":[511,611,711],
+  "options":[
+    {"name":"opt0","id":1000},
+    {"name":"opt1","id":1001},
+    {"name":"opt2","id":1002}
+  ]
+}
