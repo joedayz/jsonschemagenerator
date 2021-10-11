@@ -146,12 +146,11 @@ public class Property implements Cloneable{
     /**
      * Verifies whether the proposed type is equal to the type property, or is present in the type collection
      * @param type the type to verify
-     * @return true when the proposed type is equal to the type property, ro is present in the type collection
+     * @return true when the proposed type is equal to the type property, or is present in the type collection
      */
     public boolean typeEquals(Object type){
         /*
          * When the current type is null and the incoming type isn't, they are certainly different.
-         * We probably ended up comparing an anyOf and another property.
          */
         if(this.type == null && type != null)
             return false;

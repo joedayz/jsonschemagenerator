@@ -1,5 +1,6 @@
 package com.lendistry.genschema;
 
+import com.google.common.collect.Sets;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
@@ -23,5 +24,14 @@ public class PropertyTests {
         assertTrue(p2.equivalentTo(clonedP2));
         assertFalse(p2.equals(clonedP2));
         assertFalse(clonedP2.equals(p2));
+    }
+
+    @Test
+    public void testTypeEquals(){
+        Property p1 = new Property("#/p1","integer",1);
+        assertTrue(p1.typeEquals("integer"));
+        p1 = new Property("#/p1", Sets.newHashSet("integer","boolean"),true);
+        assertTrue(p1.typeEquals("boolean"));
+        assertTrue(p1.typeEquals("integer"));
     }
 }
