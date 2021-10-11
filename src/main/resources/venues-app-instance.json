@@ -1,6 +1,22 @@
 {
-  "limits": {
-    "maximum": 10,
-    "minimum": 10
-  }
+  "id": 42,
+  "slug": "name",
+  "admin": true,
+  "avatar": null,
+  "date": "2021-10-10",
+  "article": {
+    "title": "Name",
+    "description": "Something longer goes here",
+    "body": "There once was someone who viewed tests, and they were amazing."
+  },
+  "comments": [{
+    "body": "Nothing is safe inside of an array",
+    "tags": ["hello"]
+  }, {
+    "body": "",
+    "tags": [null]
+  }, {
+    "body": null,
+    "tags": [null]
+  }]
 }

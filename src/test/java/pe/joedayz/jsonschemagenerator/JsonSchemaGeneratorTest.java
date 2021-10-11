@@ -1,3 +1,5 @@
+package pe.joedayz.jsonschemagenerator;
+
 import org.apache.commons.io.FileUtils;
 import org.everit.json.schema.Schema;
 import org.everit.json.schema.ValidationException;
@@ -6,7 +8,6 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.junit.Assert;
 import org.junit.Test;
-import pe.joedayz.jsonschemagenerator.JsonSchemaGenerator;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
