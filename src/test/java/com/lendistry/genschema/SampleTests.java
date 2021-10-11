@@ -27,8 +27,19 @@ public class SampleTests {
         String text = GenSchemaUtils.load(f);
         System.out.println(f.getName());
 
+        if(text.startsWith("{"))
+            schema.validate(new JSONObject(text));
+        else
+            schema.validate(new JSONArray(text));
 
+        GenSchemaSimplifier simplifier = new GenSchemaSimplifier();
+        generatedSchema = simplifier.analyze(generatedSchema);
+        schema = SchemaLoader.load(new JSONObject(GenSchemaUtils.serializeJsonPayload(generatedSchema)));
+        if(text.startsWith("{"))
+            schema.validate(new JSONObject(text));
+        else
+            schema.validate(new JSONArray(text));
 
-
+        System.out.println(schema.toString());
     }
 }
