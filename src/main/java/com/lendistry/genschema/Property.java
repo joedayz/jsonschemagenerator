@@ -18,6 +18,8 @@ public class Property implements Cloneable {
 
     private Object type;
 
+    private Object constValue;
+
     private Object defaultValue;
 
     private Set<Object> examples;
@@ -29,6 +31,10 @@ public class Property implements Cloneable {
     private Map<String, Property> properties;
 
     private Property items;
+
+    private Set<Property> allOf;
+
+    private boolean additionalProperties;
 
     public Property() {
         id = UUID.randomUUID().toString();
@@ -190,10 +196,11 @@ public class Property implements Cloneable {
 
     /**
      * Inits the examples collection, if necessary, and adds a set of examples
+     *
      * @param set a set of examples
      */
-    public void addExamples(Set set){
-        if(examples == null)
+    public void addExamples(Set set) {
+        if (examples == null)
             examples = new HashSet<>();
         examples.addAll(set);
     }
@@ -201,10 +208,11 @@ public class Property implements Cloneable {
 
     /**
      * Finds common items between this object's "required" set, and the proposed set of required keys
+     *
      * @param required a set of strings
      */
-    public void intersectRequires(Set<String> required){
-        if(this.required != null && required != null)
+    public void intersectRequires(Set<String> required) {
+        if (this.required != null && required != null)
             this.required = Sets.intersection(this.required, required);
     }
 
@@ -241,9 +249,10 @@ public class Property implements Cloneable {
         this.properties = properties;
     }
 
-    public void setItems(Property items){
+    public void setItems(Property items) {
         this.items = items;
     }
+
     public Property getItems() {
         return items;
     }
@@ -256,11 +265,11 @@ public class Property implements Cloneable {
         this.anyOf = anyOf;
     }
 
-    public boolean hasAnyOf(){
+    public boolean hasAnyOf() {
         return anyOf != null;
     }
 
-    public List<Property> getAnyOf(){
+    public List<Property> getAnyOf() {
         return anyOf;
     }
 
@@ -286,7 +295,35 @@ public class Property implements Cloneable {
         return property;
     }
 
+    public void setDefaultValue(Object defaultValue) {
+        this.defaultValue = defaultValue;
+    }
 
 
 
+
+    public Object getConstValue() {
+        return constValue;
+    }
+
+    public void setConstValue(Object constValue) {
+        this.constValue = constValue;
+    }
+
+
+    public Set<Property> getAllOf() {
+        return allOf;
+    }
+
+    public void setAllOf(Set<Property> allOf) {
+        this.allOf = allOf;
+    }
+
+    public boolean isAdditionalProperties() {
+        return additionalProperties;
+    }
+
+    public void setAdditionalProperties(boolean additionalProperties) {
+        this.additionalProperties = additionalProperties;
+    }
 }
