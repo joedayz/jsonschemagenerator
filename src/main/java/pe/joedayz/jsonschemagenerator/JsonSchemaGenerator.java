@@ -2,7 +2,9 @@ package pe.joedayz.jsonschemagenerator;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.JsonNodeType;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.apache.commons.io.FileUtils;
 import org.everit.json.schema.Schema;
 import org.everit.json.schema.loader.SchemaLoader;
@@ -11,9 +13,7 @@ import org.json.JSONTokener;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 import java.util.logging.Logger;
 
 public class JsonSchemaGenerator {
@@ -46,7 +46,7 @@ public class JsonSchemaGenerator {
                         title + "\", \"description\": \"" +
                         description + "\", \"type\": \"object\", \"properties\": {");
 
-        for (Iterator<String> iterator = jsonNode.fieldNames(); iterator.hasNext();) {
+        for (Iterator<String> iterator = jsonNode.fieldNames(); iterator.hasNext(); ) {
             String fieldName = iterator.next();
             LOGGER.info("processing " + fieldName + "...");
 
@@ -70,12 +70,161 @@ public class JsonSchemaGenerator {
         LOGGER.info(key + " node type " + nodeType + " with value " + jsonNode.get(key));
         JsonNode node = null;
         switch (nodeType) {
-            case ARRAY :
-                node = jsonNode.get(key).get(0);
-                LOGGER.info(key + " is an array with value of " + node.toString());
-                result.append("array\", \"items\": { \"properties\":");
-                result.append(outputAsString(null, null, node.toString(), JsonNodeType.ARRAY));
-                result.append("}},");
+            case ARRAY:
+                if (key.equals("applicationFeatures")) {
+
+                    Map<String, Object> properties = new HashMap<>();
+                    LinkedList<IfThen> ifThenStack = new LinkedList<>();
+
+
+                    for (int i = 0; i < jsonNode.get(key).size(); i++) {
+
+                        IfThen ifThen = new IfThen();
+                        if (i == 0) {
+                            result.append("array\", \"items\": { \"properties\":");
+                        }
+
+
+                        for (Iterator<String> iterator = jsonNode.get(key).get(i).fieldNames(); iterator.hasNext(); ) {
+
+                            String fieldName = iterator.next();
+
+
+                            if (properties.get(fieldName) == null) {
+                                JsonNode field = jsonNode.get(key).get(i).get(fieldName);
+
+
+                                properties.put(fieldName, field);
+
+                                if (fieldName.equals("dataType")) {
+                                    ifThen.getIfProperty().setDataType(field);
+                                }
+                                if (fieldName.equals("itemType")) {
+                                    ifThen.getIfProperty().setItemType(field);
+                                }
+                                if (fieldName.equals("name")) {
+                                    ifThen.getIfProperty().setName(field);
+                                }
+
+                                if (fieldName.equals("format")) {
+                                    ifThen.getThenProperty().setFormat(field);
+                                }
+
+                                if (fieldName.equals("value")) {
+                                    ifThen.getThenProperty().setValue(field);
+                                }
+
+                            } else {
+
+                                JsonNode field = jsonNode.get(key).get(i).get(fieldName);
+                                if (fieldName.equals("dataType")) {
+                                    ifThen.getIfProperty().setDataType(field);
+                                }
+                                if (fieldName.equals("itemType")) {
+                                    ifThen.getIfProperty().setItemType(field);
+                                }
+                                if (fieldName.equals("name")) {
+                                    ifThen.getIfProperty().setName(field);
+                                }
+
+                                if (fieldName.equals("format")) {
+                                    ifThen.getThenProperty().setFormat(field);
+                                }
+
+                                if (fieldName.equals("value")) {
+                                    ifThen.getThenProperty().setValue(field);
+                                }
+                            }
+
+
+                        }
+
+                        ifThenStack.addLast(ifThen);
+                    }
+
+                    ObjectNode objectNode = objectMapper.createObjectNode();
+
+                    properties.forEach((k, v) -> {
+                        if (k.equals("format") || k.equals("value")) {
+
+
+                        } else {
+                            objectNode.set(k, (JsonNode) v);
+                        }
+
+                    });
+
+                    result.append(outputAsString(null, null, objectNode.toString(), JsonNodeType.ARRAY));
+                    result.append(",");
+
+                    result.append("\"allOf\": [");
+
+                    ifThenStack.stream().forEach( (it) ->{
+
+                        IfThen ifThen = it;
+
+                        result.append("{");
+                        result.append("\"if\" : { \"properties\": {");
+
+                        String constValue = ifThen.getIfProperty().getDataType().toString();
+                        result.append("\"dataType\" : {");
+                        result.append("\"const\" : ").append(constValue).append("");
+                        result.append("},");
+
+                        constValue = ifThen.getIfProperty().getItemType().toString();
+                        result.append("\"itemType\" : {");
+                        result.append("\"const\" : ").append(constValue).append("");
+                        result.append("},");
+
+                        constValue = ifThen.getIfProperty().getName().toString();
+                        result.append("\"name\" : {");
+                        result.append("\"const\" : ").append(constValue).append("");
+                        result.append("}");
+
+                        result.append("}},");
+
+                        result.append("\"then\" : { \"properties\": {");
+
+                        result.append("\"format\" : { \"type\": \"object\", \"properties\": ");
+
+                        JsonNode formatThen = ifThen.getThenProperty().getFormat();
+
+                        try {
+                            result.append(outputAsString(null, null, formatThen.toString(), JsonNodeType.ARRAY));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+                        result.append("}, ");
+
+                        result.append("\"value\" : { \"type\": \"object\", \"properties\": ");
+
+
+                        JsonNode valueThen = ifThen.getThenProperty().getValue();
+
+                        try {
+                            result.append(outputAsString(null, null, valueThen.toString(), JsonNodeType.ARRAY));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+                        result.append("}}}  }," );
+                    });
+
+
+
+                    int charInd = result.lastIndexOf(",");
+                    if(charInd!=-1) result.deleteCharAt(charInd);
+
+                    result.append("]}},");
+
+                } else {
+                    node = jsonNode.get(key).get(0);
+                    LOGGER.info(key + " is an array with value of " + node.toString());
+                    result.append("array\", \"items\": { \"properties\":");
+                    result.append(outputAsString(null, null, node.toString(), JsonNodeType.ARRAY));
+                    result.append("}},");
+                }
                 break;
             case BOOLEAN:
                 result.append("boolean\" },");

@@ -1,6 +1,1332 @@
 {
-  "limits": {
-    "maximum": 10,
-    "minimum": 10
-  }
+  "abandonDuration": null,
+  "applicationFeatures": [
+    {
+      "access": null,
+      "dataType": "grantDemographic",
+      "demoLink": "https://careliefgrant.com/wp-content/uploads/2021/06/CA_5_Business_Demographics.mp4",
+      "displayProperties": null,
+      "encrypted": false,
+      "encryptionRequired": false,
+      "format": {
+        "businessBase": {
+          "label": "Who is your customer base?",
+          "limits": {
+            "maximum": 80,
+            "minimum": 1
+          },
+          "options": [
+            {
+              "displayForValue": null,
+              "label": "B2B",
+              "value": "B2B"
+            },
+            {
+              "displayForValue": null,
+              "label": "B2C",
+              "value": "B2C"
+            },
+            {
+              "displayForValue": null,
+              "label": "Both",
+              "value": "Both"
+            }
+          ],
+          "order": 1,
+          "tooltipText": "B2B (Business to Business) | B2C (Business to Customer)",
+          "type": "selectOne"
+        },
+        "ethnicity": {
+          "label": "Ethnicity",
+          "limits": {
+            "maximum": 25,
+            "minimum": 3
+          },
+          "options": [
+            {
+              "displayForValue": null,
+              "label": "Hispanic or Latino",
+              "value": "Hispanic or Latino"
+            },
+            {
+              "displayForValue": null,
+              "label": "Not Hispanic or Latino",
+              "value": "Not Hispanic or Latino"
+            },
+            {
+              "displayForValue": null,
+              "label": "Not Disclosed",
+              "value": "Not Disclosed"
+            }
+          ],
+          "order": 9,
+          "tooltipText": "Provide information for the majority owner of the business or the primary owner.",
+          "type": "selectOne"
+        },
+        "isDisabledOwned": {
+          "label": "Disabled Owned",
+          "limits": {
+            "maximum": 3,
+            "minimum": 2
+          },
+          "options": [
+            {
+              "displayForValue": null,
+              "label": "Yes",
+              "value": "Yes"
+            },
+            {
+              "displayForValue": null,
+              "label": "No",
+              "value": "No"
+            }
+          ],
+          "order": 8,
+          "tooltipText": "Individuals directly own and control more than 50% of the business.",
+          "type": "selectOne"
+        },
+        "isFranchise": {
+          "label": "Franchise",
+          "limits": {
+            "maximum": 3,
+            "minimum": 2
+          },
+          "options": [
+            {
+              "displayForValue": null,
+              "label": "Yes",
+              "value": "Yes"
+            },
+            {
+              "displayForValue": null,
+              "label": "No",
+              "value": "No"
+            }
+          ],
+          "order": 10,
+          "type": "selectOne"
+        },
+        "isRural": {
+          "label": "Rural",
+          "limits": {
+            "maximum": 3,
+            "minimum": 2
+          },
+          "options": [
+            {
+              "displayForValue": null,
+              "label": "Yes",
+              "value": "Yes"
+            },
+            {
+              "displayForValue": null,
+              "label": "No",
+              "value": "No"
+            }
+          ],
+          "order": 11,
+          "type": "selectOne"
+        },
+        "isVeteranOwned": {
+          "label": "Veteran Owned",
+          "limits": {
+            "maximum": 3,
+            "minimum": 2
+          },
+          "options": [
+            {
+              "displayForValue": null,
+              "label": "Yes",
+              "value": "Yes"
+            },
+            {
+              "displayForValue": null,
+              "label": "No",
+              "value": "No"
+            }
+          ],
+          "order": 7,
+          "tooltipText": "Greater than 50% of the business is owned by Veteran(s).",
+          "type": "selectOne"
+        },
+        "isWomenOwned": {
+          "label": "Women Owned",
+          "limits": {
+            "maximum": 3,
+            "minimum": 2
+          },
+          "options": [
+            {
+              "displayForValue": null,
+              "label": "Yes",
+              "value": "Yes"
+            },
+            {
+              "displayForValue": null,
+              "label": "No",
+              "value": "No"
+            }
+          ],
+          "order": 6,
+          "tooltipText": "Greater than 50% of the business is owned by a Woman (Women).",
+          "type": "selectOne"
+        },
+        "moreAboutBusiness": {
+          "label": "Tell us more.",
+          "limits": {
+            "maximum": 80,
+            "minimum": 1
+          },
+          "linked": "typeOfBusiness",
+          "options": [
+            {
+              "displayForValue": "General Contractor",
+              "label": "Industrial/Warehouse",
+              "value": "Industrial/Warehouse"
+            },
+            {
+              "displayForValue": "General Contractor",
+              "label": "Nonresidential - other than industrial",
+              "value": "Nonresidential - other than industrial"
+            },
+            {
+              "displayForValue": "General Contractor",
+              "label": "Residential - other than Single",
+              "value": "Residential - other than Single"
+            },
+            {
+              "displayForValue": "General Contractor",
+              "label": "Single Family",
+              "value": "Single Family"
+            },
+            {
+              "displayForValue": "Special Trade Contractor",
+              "label": "Carpentry and Floor Work",
+              "value": "Carpentry and Floor Work"
+            },
+            {
+              "displayForValue": "Special Trade Contractor",
+              "label": "Concrete",
+              "value": "Concrete"
+            },
+            {
+              "displayForValue": "Special Trade Contractor",
+              "label": "Electrical",
+              "value": "Electrical"
+            },
+            {
+              "displayForValue": "Special Trade Contractor",
+              "label": "Masonary, Stonework, Tile and plastering",
+              "value": "Masonary, Stonework, Tile and plastering Business"
+            },
+            {
+              "displayForValue": null,
+              "label": "Other Special Trade Contrator",
+              "value": "Other Special Trade Contrator"
+            },
+            {
+              "displayForValue": "Special Trade Contractor",
+              "label": "Painting and Paper Hanging",
+              "value": "Painting and Paper Hanging"
+            },
+            {
+              "displayForValue": "Special Trade Contractor",
+              "label": "Plumbing, heating, Air-conditioning",
+              "value": "Plumbing, heating, Air-conditioning"
+            },
+            {
+              "displayForValue": "Special Trade Contractor",
+              "label": "Roofing",
+              "value": "Roofing"
+            },
+            {
+              "displayForValue": "Apparel",
+              "label": "Hats and Caps",
+              "value": "Hats and Caps"
+            },
+            {
+              "displayForValue": "Apparel",
+              "label": "Mens, Women's, children",
+              "value": "Mens, Women's, children"
+            },
+            {
+              "displayForValue": "Apparel",
+              "label": "Miscellaneous Apparel and accessories",
+              "value": "Miscellaneous Apparel and accessories"
+            },
+            {
+              "displayForValue": "Apparel",
+              "label": "Miscellaneous Fabricated Textile",
+              "value": "Miscellaneous Fabricated Textile"
+            },
+            {
+              "displayForValue": "Cement/Clay/Stone/Metal",
+              "label": "Any cement product",
+              "value": "Any cement product"
+            },
+            {
+              "displayForValue": "Cement/Clay/Stone/Metal",
+              "label": "Any Clay product",
+              "value": "Any Clay product"
+            },
+            {
+              "displayForValue": "Cement/Clay/Stone/Metal",
+              "label": "Any stone product",
+              "value": "Any stone product"
+            },
+            {
+              "displayForValue": "Cement/Clay/Stone/Metal",
+              "label": "Fabricated Metal Products",
+              "value": "Fabricated Metal Products"
+            },
+            {
+              "displayForValue": "Food Products",
+              "label": "Bakery, Sugar, Fats, and Oils",
+              "value": "Bakery, Sugar, Fats, and Oils"
+            },
+            {
+              "displayForValue": "Food Products",
+              "label": "Beverages",
+              "value": "Beverages"
+            },
+            {
+              "displayForValue": "Food Products",
+              "label": "Canned, Frozen, and Preserved Products ",
+              "value": "Canned, Frozen, and Preserved Products "
+            },
+            {
+              "displayForValue": "Food Products",
+              "label": "Grain Mill",
+              "value": "Grain Mill"
+            },
+            {
+              "displayForValue": "Food Products",
+              "label": "Meat and Dairy",
+              "value": "Meat and Dairy"
+            },
+            {
+              "displayForValue": "Food Products",
+              "label": "Other Products",
+              "value": "Other Products"
+            },
+            {
+              "displayForValue": "Furniture and Fixtures",
+              "label": "Household Furniture",
+              "value": "Household Furniture"
+            },
+            {
+              "displayForValue": "Furniture and Fixtures",
+              "label": "Office and Store Fixtures",
+              "value": "Office and Store Fixtures"
+            },
+            {
+              "displayForValue": "Furniture and Fixtures",
+              "label": "Office Furniture",
+              "value": "Office Furniture"
+            },
+            {
+              "displayForValue": "Furniture and Fixtures",
+              "label": "Public Building and/ Related Items",
+              "value": "Public Building and/ Related Items"
+            },
+            {
+              "displayForValue": "Industrial/Commercial Machinery and Computer Equipment",
+              "label": "Computer and Office",
+              "value": "Computer and Office"
+            },
+            {
+              "displayForValue": "Industrial/Commercial Machinery and Computer Equipment",
+              "label": "Construction and Metalworking",
+              "value": "Construction and Metalworking"
+            },
+            {
+              "displayForValue": "Industrial/Commercial Machinery and Computer Equipment",
+              "label": "Electronic/Electrical(including Household appliances, lighting, A&V)",
+              "value": "Electronic/Electrical(including Household appliances, lighting, A&V)"
+            },
+            {
+              "displayForValue": "Industrial/Commercial Machinery and Computer Equipment",
+              "label": "Farm and Garden",
+              "value": "Farm and Garden"
+            },
+            {
+              "displayForValue": "Industrial/Commercial Machinery and Computer Equipment",
+              "label": "Medical",
+              "value": "Medical"
+            },
+            {
+              "displayForValue": "Industrial/Commercial Machinery and Computer Equipment",
+              "label": "Refrigeration",
+              "value": "Refrigeration"
+            },
+            {
+              "displayForValue": "Industrial/Commercial Machinery and Computer Equipment",
+              "label": "Transportation",
+              "value": "Transportation"
+            },
+            {
+              "displayForValue": "Printing",
+              "label": "Commercial Printing",
+              "value": "Commercial Printing"
+            },
+            {
+              "displayForValue": "Printing",
+              "label": "Greeting Cards",
+              "value": "Greeting Cards"
+            },
+            {
+              "displayForValue": "Printing",
+              "label": "Manifold Business Forms",
+              "value": "Manifold Business Forms"
+            },
+            {
+              "displayForValue": "Printing",
+              "label": "Miscellaneous",
+              "value": "Miscellaneous"
+            },
+            {
+              "displayForValue": "Printing",
+              "label": "Service Industries for Printing Trade",
+              "value": "Service Industries for Printing Trade"
+            },
+            {
+              "displayForValue": "Rubber, Plastic, Leather, and/or Glass",
+              "label": "Any Leather Goods",
+              "value": "Any Leather Goods"
+            },
+            {
+              "displayForValue": "Rubber, Plastic, Leather, and/or Glass",
+              "label": "Glass and Other Glass Products",
+              "value": "Glass and Other Glass Products"
+            },
+            {
+              "displayForValue": "Rubber, Plastic, Leather, and/or Glass",
+              "label": "Plastic Products",
+              "value": "Plastic Products"
+            },
+            {
+              "displayForValue": "Rubber, Plastic, Leather, and/or Glass",
+              "label": "Tires, Tubes, Hoses, and Belting",
+              "value": "Tires, Tubes, Hoses, and Belting"
+            },
+            {
+              "displayForValue": "Textiles",
+              "label": "Carpets and Rugs",
+              "value": "Carpets and Rugs"
+            },
+            {
+              "displayForValue": "Textiles",
+              "label": "Dyeing and/or Finishing",
+              "value": "Dyeing and/or Finishing"
+            },
+            {
+              "displayForValue": "Textiles",
+              "label": "Fabric Mill (Includes Cotton, Wool, Silk, and Other Items)",
+              "value": "Fabric Mill (Includes Cotton, Wool, Silk, and Other Items)"
+            },
+            {
+              "displayForValue": "Textiles",
+              "label": "Knitting Mill",
+              "value": "Knitting Mill"
+            },
+            {
+              "displayForValue": "Textiles",
+              "label": "Yarn and Thread",
+              "value": "Yarn and Thread"
+            },
+            {
+              "displayForValue": "Retail Trade",
+              "label": "Apparel and accessory",
+              "value": "Apparel and accessory"
+            },
+            {
+              "displayForValue": "Retail Trade",
+              "label": "Automotive Dealers and Gasoline",
+              "value": "Automotive Dealers and Gasoline"
+            },
+            {
+              "displayForValue": "Retail Trade",
+              "label": "Building Materials, Hardware, Garden, and/or Mobile Homes",
+              "value": "Building Materials, Hardware, Garden, and/or Mobile Homes"
+            },
+            {
+              "displayForValue": "Retail Trade",
+              "label": "Food and Grocery",
+              "value": "Food and Grocery"
+            },
+            {
+              "displayForValue": "Retail Trade",
+              "label": "General Merchandise",
+              "value": "General Merchandise"
+            },
+            {
+              "displayForValue": "Retail Trade",
+              "label": "Home Furniture, Furnishings, and/or Equipment ",
+              "value": "Home Furniture, Furnishings, and/or Equipment "
+            },
+            {
+              "displayForValue": "Whole Sale - Durable",
+              "label": "Furniture and Fixtures",
+              "value": "Furniture and Fixtures"
+            },
+            {
+              "displayForValue": "Whole Sale - Durable",
+              "label": "Hardware, Plumbing, Heating, and/or Electrical",
+              "value": "Hardware, Plumbing, Heating, and/or Electrical"
+            },
+            {
+              "displayForValue": "Whole Sale - Durable",
+              "label": "Lumber and Other Construction",
+              "value": "Lumber and Other Construction"
+            },
+            {
+              "displayForValue": "Whole Sale - Durable",
+              "label": "Machinery and Equipment",
+              "value": "Machinery and Equipment"
+            },
+            {
+              "displayForValue": "Whole Sale - Durable",
+              "label": "Metals and Minerals",
+              "value": "Metals and Minerals"
+            },
+            {
+              "displayForValue": "Whole Sale - Durable",
+              "label": "Moto Vehicles",
+              "value": "Moto Vehicles"
+            },
+            {
+              "displayForValue": "Whole Sale - Durable",
+              "label": "Professional and Commercial Equipment",
+              "value": "Professional and Commercial Equipment"
+            },
+            {
+              "displayForValue": "Whole Sale - Non Durable",
+              "label": "Apparel",
+              "value": "Apparel"
+            },
+            {
+              "displayForValue": "Whole Sale - Non Durable",
+              "label": "Beer, Wine and Distilled",
+              "value": "Beer, Wine and Distilled"
+            },
+            {
+              "displayForValue": "Whole Sale - Non Durable",
+              "label": "Chemical and Petroleum",
+              "value": "Chemical and Petroleum"
+            },
+            {
+              "displayForValue": "Whole Sale - Non Durable",
+              "label": "Farm Products",
+              "value": "Farm Products"
+            },
+            {
+              "displayForValue": "Whole Sale - Non Durable",
+              "label": "Groceries & Related Products",
+              "value": "Groceries & Related Products"
+            },
+            {
+              "displayForValue": "Whole Sale - Non Durable",
+              "label": "Paper &  Paper Products",
+              "value": "Paper &  Paper Products"
+            },
+            {
+              "displayForValue": "Amusement and Recreation",
+              "label": "Bowling",
+              "value": "Bowling"
+            },
+            {
+              "displayForValue": "Amusement and Recreation",
+              "label": "Commercial sports",
+              "value": "Commercial sports"
+            },
+            {
+              "displayForValue": "Amusement and Recreation",
+              "label": "Dance Studios",
+              "value": "Dance Studios"
+            },
+            {
+              "displayForValue": "Amusement and Recreation",
+              "label": "Theater and Band",
+              "value": "Theater and Band"
+            },
+            {
+              "displayForValue": "Auto repair and Services",
+              "label": "Parking",
+              "value": "Parking"
+            },
+            {
+              "displayForValue": "Auto repair and Services",
+              "label": "Rental",
+              "value": "Rental"
+            },
+            {
+              "displayForValue": "Auto repair and Services",
+              "label": "Repair",
+              "value": "Repair"
+            },
+            {
+              "displayForValue": "Auto repair and Services",
+              "label": "Services (except repair)",
+              "value": "Services (except repair)"
+            },
+            {
+              "displayForValue": "Business Services",
+              "label": "Computer related",
+              "value": "Computer related"
+            },
+            {
+              "displayForValue": "Business Services",
+              "label": "Equipment rental and leasing",
+              "value": "Equipment rental and leasing"
+            },
+            {
+              "displayForValue": "Business Services",
+              "label": "Personal supply services",
+              "value": "Personal supply services"
+            },
+            {
+              "displayForValue": "Business Services",
+              "label": "Reporting Agencies",
+              "value": "Reporting Agencies"
+            },
+            {
+              "displayForValue": "Business Services",
+              "label": "Services to dwelling and other",
+              "value": "Services to dwelling and other"
+            },
+            {
+              "displayForValue": "Entertainment",
+              "label": "Bar/lounge including entertainment",
+              "value": "Bar/lounge including entertainment"
+            },
+            {
+              "displayForValue": "Entertainment",
+              "label": "Franchise",
+              "value": "Franchise"
+            },
+            {
+              "displayForValue": "Entertainment",
+              "label": "Full Service Bar/Lounge",
+              "value": "Full Service Bar/Lounge"
+            },
+            {
+              "displayForValue": "Entertainment",
+              "label": "Full Service Restaurant",
+              "value": "Full Service Restaurant"
+            },
+            {
+              "displayForValue": "Entertainment",
+              "label": "Limited Service Restaurant",
+              "value": "Limited Service Restaurant"
+            },
+            {
+              "displayForValue": "Health Services",
+              "label": "Home health care services",
+              "value": "Home health care services"
+            },
+            {
+              "displayForValue": "Health Services",
+              "label": "Hospitals",
+              "value": "Hospitals"
+            },
+            {
+              "displayForValue": "Health Services",
+              "label": "Medical and dental labs",
+              "value": "Medical and dental labs"
+            },
+            {
+              "displayForValue": "Health Services",
+              "label": "Nursing and personal care",
+              "value": "Nursing and personal care"
+            },
+            {
+              "displayForValue": "Health Services",
+              "label": "Offices and clinics",
+              "value": "Offices and clinics"
+            },
+            {
+              "displayForValue": "Hotels/Camps and Lodging",
+              "label": "Camps and RV Parks",
+              "value": "Camps and RV Parks"
+            },
+            {
+              "displayForValue": "Hotels/Camps and Lodging",
+              "label": "Hotels/Motels and Boarding Houses",
+              "value": "Hotels/Motels and Boarding Houses"
+            },
+            {
+              "displayForValue": "Hotels/Camps and Lodging",
+              "label": "Lodging Houses",
+              "value": "Lodging Houses"
+            },
+            {
+              "displayForValue": "Insurance/Real Estate",
+              "label": "Independent Insurance Carriers",
+              "value": "Independent Insurance Carriers"
+            },
+            {
+              "displayForValue": "Insurance/Real Estate",
+              "label": "Insurance Agent/Broker/Service",
+              "value": "Insurance Agent/Broker/Service"
+            },
+            {
+              "displayForValue": "Insurance/Real Estate",
+              "label": "Real Estate Agent/Manager",
+              "value": "Real Estate Agent/Manager"
+            },
+            {
+              "displayForValue": "Insurance/Real Estate",
+              "label": "Real Estate Operators",
+              "value": "Real Estate Operators"
+            },
+            {
+              "displayForValue": "Personal Services",
+              "label": "Beauty/Barber/Nail",
+              "value": "Beauty/Barber/Nail"
+            },
+            {
+              "displayForValue": "Personal Services",
+              "label": "Funeral Services",
+              "value": "Funeral Services"
+            },
+            {
+              "displayForValue": "Personal Services",
+              "label": "Laundry/cleaning/Garment",
+              "value": "Laundry/cleaning/Garment"
+            },
+            {
+              "displayForValue": "Personal Services",
+              "label": "Photographic and Portrait",
+              "value": "Photographic and Portrait"
+            },
+            {
+              "displayForValue": "Personal Services",
+              "label": "Shoe repair",
+              "value": "Shoe repair"
+            },
+            {
+              "displayForValue": "Professional",
+              "label": "Accounting",
+              "value": "Accounting"
+            },
+            {
+              "displayForValue": "Professional",
+              "label": "Arts",
+              "value": "Arts"
+            },
+            {
+              "displayForValue": "Professional",
+              "label": "Educational",
+              "value": "Educational"
+            },
+            {
+              "displayForValue": "Professional",
+              "label": "Engineering",
+              "value": "Engineering"
+            },
+            {
+              "displayForValue": "Professional",
+              "label": "Legal",
+              "value": "Legal"
+            },
+            {
+              "displayForValue": "Professional",
+              "label": "Mgmt and Public relations",
+              "value": "Mgmt and Public relations"
+            },
+            {
+              "displayForValue": "Professional",
+              "label": "Social",
+              "value": "Social"
+            },
+            {
+              "displayForValue": "Communications",
+              "label": "Cable",
+              "value": "Cable"
+            },
+            {
+              "displayForValue": "Communications",
+              "label": "Radio",
+              "value": "Radio"
+            },
+            {
+              "displayForValue": "Communications",
+              "label": "Telephone",
+              "value": "Telephone"
+            },
+            {
+              "displayForValue": "Electric/Gas/Sanitary",
+              "label": "Electrical services",
+              "value": "Electrical services"
+            },
+            {
+              "displayForValue": "Electric/Gas/Sanitary",
+              "label": "Gas Production and Distribution",
+              "value": "Gas Production and Distribution"
+            },
+            {
+              "displayForValue": "Electric/Gas/Sanitary",
+              "label": "Sanitary Services",
+              "value": "Sanitary Services"
+            },
+            {
+              "displayForValue": "Electric/Gas/Sanitary",
+              "label": "Steam and Irrigation",
+              "value": "Steam and Irrigation"
+            },
+            {
+              "displayForValue": "Electric/Gas/Sanitary",
+              "label": "Water Supply",
+              "value": "Water Supply"
+            },
+            {
+              "displayForValue": "Transportation",
+              "label": "Air Transportation",
+              "value": "Air Transportation"
+            },
+            {
+              "displayForValue": "Transportation",
+              "label": "Buses (all)",
+              "value": "Buses (all)"
+            },
+            {
+              "displayForValue": "Transportation",
+              "label": "Local and suburban Transportation",
+              "value": "Local and suburban Transportation"
+            },
+            {
+              "displayForValue": "Transportation",
+              "label": "Motor Freight Transport and Warehousing",
+              "value": "Motor Freight Transport and Warehousing"
+            },
+            {
+              "displayForValue": "Transportation",
+              "label": "Railroad",
+              "value": "Railroad"
+            },
+            {
+              "displayForValue": "Transportation",
+              "label": "Transportation Services (agencies, operators, etc)",
+              "value": "Transportation Services (agencies, operators, etc)"
+            },
+            {
+              "displayForValue": "Transportation",
+              "label": "Water Transportation",
+              "value": "Water Transportation"
+            },
+            {
+              "displayForValue": "Unknown",
+              "label": "Unknown",
+              "value": "Unknown"
+            }
+          ],
+          "order": 4,
+          "type": "selectOne"
+        },
+        "naics": {
+          "externalReference": "<a href=\"https://www.naics.com\" target=\"_blank\">Click</a> here to find your NAICS code",
+          "label": "NAICS code",
+          "limits": {
+            "maximum": 6,
+            "minimum": 3
+          },
+          "options": [
+            {
+              "displayForValue": null,
+              "label": "711120 - Dance Companies",
+              "value": "711120"
+            },
+            {
+              "displayForValue": null,
+              "label": "711211 - Sports Teams and Clubs",
+              "value": "711211"
+            },
+            {
+              "displayForValue": null,
+              "label": "711310 - Promoters of Performing Arts, Sports and Similar Events with Facilities",
+              "value": "711310"
+            },
+            {
+              "displayForValue": null,
+              "label": "711320 - Promoters of Performing Arts, Sports and Similar Events without Facilities",
+              "value": "711320"
+            },
+            {
+              "displayForValue": null,
+              "label": "722410 - Drinking Places (Alcoholic Beverages)",
+              "value": "722410"
+            },
+            {
+              "displayForValue": null,
+              "label": "722511 - Full-Service Restaurants",
+              "value": "722511"
+            },
+            {
+              "displayForValue": null,
+              "label": "Other",
+              "value": "Other"
+            }
+          ],
+          "order": 5,
+          "tooltipText": "The NAICS Code System is used by Federal Statistical Agencies to collect, analyze, and publish statistical data related to the U.S. Economy.<br /> NAICS is a Self-Assigned System; no one assigns you a NAICS Code.<br />  What this means is a company selects the code that best depicts their primary business activity and then uses it when asked for their code.",
+          "type": "selectOne"
+        },
+        "race": {
+          "label": "Race",
+          "limits": {
+            "maximum": 25,
+            "minimum": 3
+          },
+          "options": [
+            {
+              "displayForValue": null,
+              "label": "African American",
+              "value": "African American"
+            },
+            {
+              "displayForValue": null,
+              "label": "Alaskan Native",
+              "value": "Alaskan Native"
+            },
+            {
+              "displayForValue": null,
+              "label": "American indian",
+              "value": "American indian"
+            },
+            {
+              "displayForValue": null,
+              "label": "Asian",
+              "value": "Asian"
+            },
+            {
+              "displayForValue": null,
+              "label": "Hawaiian Native",
+              "value": "Hawaiian Native"
+            },
+            {
+              "displayForValue": null,
+              "label": "Other pacific Islander",
+              "value": "Other pacific Islander"
+            },
+            {
+              "displayForValue": null,
+              "label": "White",
+              "value": "White"
+            },
+            {
+              "displayForValue": null,
+              "label": "Not Disclosed",
+              "value": "Not Disclosed"
+            },
+            {
+              "displayForValue": null,
+              "label": "Biracial",
+              "value": "Biracial"
+            },
+            {
+              "displayForValue": null,
+              "label": "Other",
+              "value": "Other"
+            }
+          ],
+          "order": 9,
+          "tooltipText": "Provide information for the majority owner of the business or the primary owner.",
+          "type": "selectOne"
+        },
+        "typeOfBusiness": {
+          "label": "What type of business is it?",
+          "limits": {
+            "maximum": 80,
+            "minimum": 1
+          },
+          "linked": "whatBusinessDo",
+          "options": [
+            {
+              "displayForValue": "Construction Business",
+              "label": "General Contractor",
+              "value": "General Contractor"
+            },
+            {
+              "displayForValue": "Construction Business",
+              "label": "Special Trade Contractor",
+              "value": "Special Trade Contractor"
+            },
+            {
+              "displayForValue": "Manufacturer",
+              "label": "Apparel",
+              "value": "Apparel"
+            },
+            {
+              "displayForValue": "Manufacturer",
+              "label": "Cement/Clay/Stone/Metal",
+              "value": "Cement/Clay/Stone/Metal"
+            },
+            {
+              "displayForValue": "Manufacturer",
+              "label": "Food Products",
+              "value": "Food Products"
+            },
+            {
+              "displayForValue": "Manufacturer",
+              "label": "Furniture and Fixtures",
+              "value": "Furniture and Fixtures"
+            },
+            {
+              "displayForValue": "Manufacturer",
+              "label": "Industrial/Commercial Machinery and Computer Equipment",
+              "value": "Industrial/Commercial Machinery and Computer Equipment"
+            },
+            {
+              "displayForValue": "Manufacturer",
+              "label": "Rubber, Plastic, Leather/glass",
+              "value": "Rubber, Plastic, Leather/glass"
+            },
+            {
+              "displayForValue": "Manufacturer",
+              "label": "Textile",
+              "value": "Textile"
+            },
+            {
+              "displayForValue": "Sells Products",
+              "label": "Retail Trade",
+              "value": "Retail Trade"
+            },
+            {
+              "displayForValue": "Sells Products",
+              "label": "Whole Sale - Durable",
+              "value": "Whole Sale - Durable"
+            },
+            {
+              "displayForValue": "Sells Products",
+              "label": "Whole Sale - Non Durable",
+              "value": "Whole Sale - Non Durable"
+            },
+            {
+              "displayForValue": "Service Business",
+              "label": "Amusement and Recreation",
+              "value": "Amusement and Recreation"
+            },
+            {
+              "displayForValue": "Service Business",
+              "label": "Auto repair and Services",
+              "value": "Auto repair and Services"
+            },
+            {
+              "displayForValue": "Service Business",
+              "label": "Business Services",
+              "value": "Business Services"
+            },
+            {
+              "displayForValue": "Service Business",
+              "label": "Entertainment",
+              "value": "Entertainment"
+            },
+            {
+              "displayForValue": "Service Business",
+              "label": "Health Services",
+              "value": "Health Services"
+            },
+            {
+              "displayForValue": "Service Business",
+              "label": "Hotels/Camps and Lodging",
+              "value": "Hotels/Camps and Lodging"
+            },
+            {
+              "displayForValue": "Service Business",
+              "label": "Insurance/Real Estate",
+              "value": "Insurance/Real Estate"
+            },
+            {
+              "displayForValue": "Service Business",
+              "label": "Personal Services",
+              "value": "Personal Services"
+            },
+            {
+              "displayForValue": "Service Business",
+              "label": "Professional",
+              "value": "Professional"
+            },
+            {
+              "displayForValue": "Transport/communication",
+              "label": "Communications",
+              "value": "Communications"
+            },
+            {
+              "displayForValue": "Transport/communication",
+              "label": "Electric/Gas/Sanitary",
+              "value": "Electric/Gas/Sanitary"
+            },
+            {
+              "displayForValue": "Transport/communication",
+              "label": "Transportation",
+              "value": "Transportation"
+            },
+            {
+              "displayForValue": "Unknown",
+              "label": "Unknown",
+              "value": "Unknown"
+            }
+          ],
+          "order": 3,
+          "type": "selectOne"
+        },
+        "whatBusinessDo": {
+          "label": "What does your business do?",
+          "limits": {
+            "maximum": 80,
+            "minimum": 1
+          },
+          "options": [
+            {
+              "displayForValue": null,
+              "label": "Construction Business",
+              "value": "Construction Business"
+            },
+            {
+              "displayForValue": null,
+              "label": "Manufacturer",
+              "value": "Manufacturer"
+            },
+            {
+              "displayForValue": null,
+              "label": "Sells Products",
+              "value": "Sells Products"
+            },
+            {
+              "displayForValue": null,
+              "label": "Service Business",
+              "value": "Service Business"
+            },
+            {
+              "displayForValue": null,
+              "label": "Transport/communication",
+              "value": "Transport/communication"
+            },
+            {
+              "displayForValue": null,
+              "label": "Unknown",
+              "value": "Unknown"
+            }
+          ],
+          "order": 2,
+          "type": "selectOne"
+        }
+      },
+      "itemType": "FormDataProperty",
+      "limits": null,
+      "listStyle": null,
+      "name": "demographic",
+      "required": true,
+      "requiredValidated": false,
+      "section": "demographic",
+      "subTitle": "We want to get to know you.",
+      "title": "Tell us about your company",
+      "valid": true,
+      "validated": false,
+      "value": {
+        "businessBase": "B2B",
+        "ethnicity": "Hispanic or Latino",
+        "isDisabledOwned": "Yes",
+        "isFranchise": "Yes",
+        "isRural": "Yes",
+        "isVeteranOwned": "Yes",
+        "isWomenOwned": "Yes",
+        "moreAboutBusiness": "Industrial/Warehouse",
+        "naics": "711120",
+        "race": "African American",
+        "typeOfBusiness": "General Contractor",
+        "whatBusinessDo": "Construction Business"
+      },
+      "valueValidated": true
+    },
+    {
+      "access": null,
+      "dataType": "grantDisclosures",
+      "demoLink": "https://careliefgrant.com/wp-content/uploads/2021/06/CA_4_How_Can_We_Help.mp4",
+      "displayProperties": null,
+      "encrypted": false,
+      "encryptionRequired": false,
+      "format": {
+        "amountRequested": {
+          "label": "Amount Requested",
+          "limits": {
+            "maximum": 250000,
+            "minimum": 0
+          },
+          "order": 2,
+          "pattern": "^([1-9]\\d{0,4}|1\\d{5}|2[0-4]\\d{4}|250000)",
+          "tooltipText": "<table border='1' style='background-color: darkgray; '> <thead>   <tr>     <th>Grant Calculation</th>     <th>Maximum Eligible Amount</th>   </tr> </thead> <tbody>   <tr>     <td>20% of 2019 Annual Gross Revenue earned in California.</td>     <td>$250,000*</td>   </tr>  </tbody></table><br /><br /><span>*If an eligible independent live event has been previously  awarded a grant under the California Small Business COVID-19 Relief Grant Program, the amount of that grant award shall be subtracted from the eligible grant amount under this California Venues Grant Program. If the grant amount awarded under the California Small Business COVID-19 Relief Grant Program is greater than the amount awarded under this California Venues Grant Program, the eligible independent live event shall not receive a grant under this program.</span>",
+          "type": "numberInput"
+        },
+        "annualGrossReceipts2019": {
+          "label": "Annual Gross Receipts for 2019 (this should match your tax return)",
+          "limits": {
+            "maximum": 10000000,
+            "minimum": 0
+          },
+          "order": 3,
+          "type": "numberInput"
+        },
+        "grantPurpose": {
+          "label": "Purpose of grant",
+          "limits": {
+            "maximum": 80,
+            "minimum": 1
+          },
+          "options": [
+            {
+              "displayForValue": null,
+              "label": "Employee expenses",
+              "value": "Employee expenses"
+            },
+            {
+              "displayForValue": null,
+              "label": "Working capital and overhead",
+              "value": "Working capital and overhead"
+            },
+            {
+              "displayForValue": null,
+              "label": "Costs of reopening",
+              "value": "Costs of reopening"
+            },
+            {
+              "displayForValue": null,
+              "label": "Costs associated with complying with COVID-19",
+              "value": "Costs associated with complying with COVID-19"
+            },
+            {
+              "displayForValue": null,
+              "label": "Other COVID-19 related expenses",
+              "value": "Other COVID-19 related expenses"
+            }
+          ],
+          "order": 1,
+          "type": "selectOne"
+        },
+        "numberFullTimeEmployees2020": {
+          "label": "# of Full-time Employees (2020)",
+          "limits": {
+            "maximum": 1000000,
+            "minimum": 0
+          },
+          "order": 5,
+          "type": "numberInput"
+        },
+        "numberJobsCreated2020": {
+          "label": "# of jobs created (2020)",
+          "limits": {
+            "maximum": 1000000,
+            "minimum": 0
+          },
+          "order": 7,
+          "type": "numberInput"
+        },
+        "numberJobsRetained2020": {
+          "label": "# of jobs retained (2020)",
+          "limits": {
+            "maximum": 1000000,
+            "minimum": 0
+          },
+          "order": 8,
+          "type": "numberInput"
+        },
+        "numberPartTimeEmployees2020": {
+          "label": "# of Part-time Employees (2020)",
+          "limits": {
+            "maximum": 1000000,
+            "minimum": 0
+          },
+          "order": 6,
+          "type": "numberInput"
+        },
+        "willGrantCreateNewJobs": {
+          "label": "Will this grant create new jobs?",
+          "limits": {
+            "maximum": 3,
+            "minimum": 2
+          },
+          "options": [
+            {
+              "displayForValue": null,
+              "label": "Yes",
+              "value": "Yes"
+            },
+            {
+              "displayForValue": null,
+              "label": "No",
+              "value": "No"
+            }
+          ],
+          "order": 4,
+          "type": "selectOne"
+        }
+      },
+      "itemType": "FormDataProperty",
+      "limits": null,
+      "listStyle": null,
+      "name": "grant info",
+      "required": true,
+      "requiredValidated": false,
+      "section": "business info - 2",
+      "subTitle": null,
+      "title": "How can we help you",
+      "valid": true,
+      "validated": false,
+      "value": {
+        "amountRequested": 0,
+        "annualGrossReceipts2019": 0,
+        "grantPurpose": "Employee expenses",
+        "numberFullTimeEmployees2020": 0,
+        "numberJobsCreated2020": 0,
+        "numberJobsRetained2020": 0,
+        "numberPartTimeEmployees2020": 0,
+        "willGrantCreateNewJobs": "Yes"
+      },
+      "valueValidated": true
+    }
+  ],
+  "applicationId": "98c4d7e2-cf9c-4f90-9fb6-1cc8db30582a",
+  "assignedTo": null,
+  "comments": null,
+  "createdBy": "5d0e0528-e634-4a71-8be7-32538b323841@venues-crg",
+  "createdDate": "2021-09-30T18:11:16.628+00:00",
+  "endDate": null,
+  "id": "a01084b8-288d-49fe-8604-0d74260e9f45",
+  "loanProductId": 1,
+  "partnerStatus": "PARTNER_VERIFICATION_NOT_APPLICABLE",
+  "propertySequence": [
+    "applicant",
+    "business info",
+    "grant info",
+    "demographic",
+    "disclosure",
+    "upload documents",
+    "plaidToken",
+    "bankAccount"
+  ],
+  "sectionSequence": [
+    "ownership info",
+    "business info - 1",
+    "business info - 2",
+    "demographic",
+    "disclosure Q&A",
+    "upload documents"
+  ],
+  "startDate": null,
+  "status": "MANUAL_REVIEW_REQUIRED",
+  "tenantId": "venues-crg",
+  "updateDate": "2021-10-01T00:02:34.482+00:00",
+  "updateReason": null,
+  "updatedBy": "anonymousUser@venues-crg",
+  "validations": [
+    {
+      "allowedFeatureTypeChanges": null,
+      "allowedStateTransitions": null,
+      "allowedStatusChanges": null,
+      "name": "VenuesCrgValidation",
+      "requiredFeatureTypes": null,
+      "validated": false
+    }
+  ],
+  "version": 20
 }
