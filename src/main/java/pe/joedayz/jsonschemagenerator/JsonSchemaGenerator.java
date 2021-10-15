@@ -91,7 +91,7 @@ public class JsonSchemaGenerator {
 
                     result.append("\"allOf\": [");
 
-                    ifThenStack.stream().forEach( (it) ->{
+                    ifThenStack.stream().forEach((it) -> {
 
                         IfThen ifThen = it;
 
@@ -99,7 +99,7 @@ public class JsonSchemaGenerator {
                     });
 
                     int charInd = result.lastIndexOf(",");
-                    if(charInd!=-1) result.deleteCharAt(charInd);
+                    if (charInd != -1) result.deleteCharAt(charInd);
 
                     result.append("]}},");
 
@@ -135,6 +135,7 @@ public class JsonSchemaGenerator {
     }
 
     private static void builtPropertiesForApplicationFeatures(JsonNode jsonNode, String key, StringBuilder result, Map<String, Object> properties, LinkedList<IfThen> ifThenStack) {
+
         for (int i = 0; i < jsonNode.get(key).size(); i++) {
 
             IfThen ifThen = new IfThen();
@@ -153,30 +154,37 @@ public class JsonSchemaGenerator {
                     JsonNode field = jsonNode.get(key).get(i).get(fieldName);
                     properties.put(fieldName, field);
 
-                    generateIfThenAccordingDataTypeItemTypeAndName(ifThen, fieldName, field);
+                    generateIfThenForDataTypeItemTypeAndName(ifThen, fieldName, field);
 
                 } else {
 
                     JsonNode field = jsonNode.get(key).get(i).get(fieldName);
 
-                    generateIfThenAccordingDataTypeItemTypeAndName(ifThen, fieldName, field);
+                    generateIfThenForDataTypeItemTypeAndName(ifThen, fieldName, field);
                 }
 
 
             }
+
 
             ifThenStack.addLast(ifThen);
         }
     }
 
     private static void builtIfThenBlockForApplicationFeatures(StringBuilder result, IfThen ifThen) {
+
+        JsonNodeType nodeType = null;
+        String constValue = "";
         result.append("{");
         result.append("\"if\" : { \"properties\": {");
 
-        String constValue = ifThen.getIfProperty().getDataType().toString();
-        result.append("\"dataType\" : {");
-        result.append("\"const\" : ").append(constValue).append("");
-        result.append("},");
+
+        if(ifThen.getIfProperty().getDataType()!=null){
+            constValue = ifThen.getIfProperty().getDataType().toString();
+            result.append("\"dataType\" : {");
+            result.append("\"const\" : ").append(constValue).append("");
+            result.append("},");
+        }
 
         constValue = ifThen.getIfProperty().getItemType().toString();
         result.append("\"itemType\" : {");
@@ -192,33 +200,57 @@ public class JsonSchemaGenerator {
 
         result.append("\"then\" : { \"properties\": {");
 
-        result.append("\"format\" : { \"type\": \"object\", \"properties\": ");
+
 
         JsonNode formatThen = ifThen.getThenProperty().getFormat();
 
-        try {
-            result.append(outputAsString(null, null, formatThen.toString(), JsonNodeType.ARRAY));
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(formatThen!=null) {
+
+
+            nodeType = formatThen.getNodeType();
+
+            if (nodeType.name().equals("OBJECT")) {
+                result.append("\"format\" : { \"type\": \"object\", \"properties\": ");
+                try {
+                    result.append(outputAsString(null, null, formatThen.toString(), nodeType));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }else{
+                result.append("\"format\" : { \"type\": \"null\" ");
+            }
+
+
+            result.append("}, ");
         }
-
-        result.append("}, ");
-
-        result.append("\"value\" : { \"type\": \"object\", \"properties\": ");
-
 
         JsonNode valueThen = ifThen.getThenProperty().getValue();
 
-        try {
-            result.append(outputAsString(null, null, valueThen.toString(), JsonNodeType.ARRAY));
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(valueThen!=null) {
+
+            nodeType = valueThen.getNodeType();
+
+            if (nodeType.name().equals("OBJECT")) {
+                result.append("\"value\" : { \"type\": \"object\", \"properties\": ");
+
+                try {
+                    result.append(outputAsString(null, null, valueThen.toString(), nodeType));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            } else if (nodeType.name().equals("NULL")) {
+                result.append("\"value\" : { \"type\": \"null\" ");
+            }
+
         }
 
-        result.append("}}}  }," );
+
+        result.append("}}}  },");
     }
 
-    private static void generateIfThenAccordingDataTypeItemTypeAndName(IfThen ifThen, String fieldName, JsonNode field) {
+    private static void generateIfThenForDataTypeItemTypeAndName(IfThen ifThen, String fieldName, JsonNode field) {
+
         if (fieldName.equals("dataType")) {
             ifThen.getIfProperty().setDataType(field);
         }

@@ -1140,149 +1140,257 @@
       "valueValidated": true
     },
     {
-      "access": null,
-      "dataType": "grantDisclosures",
-      "demoLink": "https://careliefgrant.com/wp-content/uploads/2021/06/CA_4_How_Can_We_Help.mp4",
+      "access": {
+        "borrowerEditable": false,
+        "borrowerViewable": false,
+        "reviewerEditable": true,
+        "reviewerViewable": true
+      },
+      "demoLink": null,
       "displayProperties": null,
       "encrypted": false,
       "encryptionRequired": false,
       "format": {
-        "amountRequested": {
-          "label": "Amount Requested",
-          "limits": {
-            "maximum": 250000,
-            "minimum": 0
-          },
-          "order": 2,
-          "pattern": "^([1-9]\\d{0,4}|1\\d{5}|2[0-4]\\d{4}|250000)",
-          "tooltipText": "<table border='1' style='background-color: darkgray; '> <thead>   <tr>     <th>Grant Calculation</th>     <th>Maximum Eligible Amount</th>   </tr> </thead> <tbody>   <tr>     <td>20% of 2019 Annual Gross Revenue earned in California.</td>     <td>$250,000*</td>   </tr>  </tbody></table><br /><br /><span>*If an eligible independent live event has been previously  awarded a grant under the California Small Business COVID-19 Relief Grant Program, the amount of that grant award shall be subtracted from the eligible grant amount under this California Venues Grant Program. If the grant amount awarded under the California Small Business COVID-19 Relief Grant Program is greater than the amount awarded under this California Venues Grant Program, the eligible independent live event shall not receive a grant under this program.</span>",
-          "type": "numberInput"
-        },
-        "annualGrossReceipts2019": {
-          "label": "Annual Gross Receipts for 2019 (this should match your tax return)",
-          "limits": {
-            "maximum": 10000000,
-            "minimum": 0
-          },
-          "order": 3,
-          "type": "numberInput"
-        },
-        "grantPurpose": {
-          "label": "Purpose of grant",
-          "limits": {
-            "maximum": 80,
-            "minimum": 1
-          },
-          "options": [
-            {
-              "displayForValue": null,
-              "label": "Employee expenses",
-              "value": "Employee expenses"
-            },
-            {
-              "displayForValue": null,
-              "label": "Working capital and overhead",
-              "value": "Working capital and overhead"
-            },
-            {
-              "displayForValue": null,
-              "label": "Costs of reopening",
-              "value": "Costs of reopening"
-            },
-            {
-              "displayForValue": null,
-              "label": "Costs associated with complying with COVID-19",
-              "value": "Costs associated with complying with COVID-19"
-            },
-            {
-              "displayForValue": null,
-              "label": "Other COVID-19 related expenses",
-              "value": "Other COVID-19 related expenses"
-            }
-          ],
-          "order": 1,
-          "type": "selectOne"
-        },
-        "numberFullTimeEmployees2020": {
-          "label": "# of Full-time Employees (2020)",
-          "limits": {
-            "maximum": 1000000,
-            "minimum": 0
-          },
-          "order": 5,
-          "type": "numberInput"
-        },
-        "numberJobsCreated2020": {
-          "label": "# of jobs created (2020)",
-          "limits": {
-            "maximum": 1000000,
-            "minimum": 0
-          },
-          "order": 7,
-          "type": "numberInput"
-        },
-        "numberJobsRetained2020": {
-          "label": "# of jobs retained (2020)",
-          "limits": {
-            "maximum": 1000000,
-            "minimum": 0
-          },
-          "order": 8,
-          "type": "numberInput"
-        },
-        "numberPartTimeEmployees2020": {
-          "label": "# of Part-time Employees (2020)",
-          "limits": {
-            "maximum": 1000000,
-            "minimum": 0
-          },
+        "grossRevenues.2019.grossAnnualRevenue": {
+          "label": "Gross Annual Revenue (GAR) 2019",
           "order": 6,
+          "required": true,
           "type": "numberInput"
         },
-        "willGrantCreateNewJobs": {
-          "label": "Will this grant create new jobs?",
-          "limits": {
-            "maximum": 3,
-            "minimum": 2
-          },
-          "options": [
-            {
-              "displayForValue": null,
-              "label": "Yes",
-              "value": "Yes"
-            },
-            {
-              "displayForValue": null,
-              "label": "No",
-              "value": "No"
-            }
-          ],
+        "grossRevenues.2019.percentDiff": {
+          "label": "Percent Difference Calculated (GAR v. P&L)",
+          "order": 7,
+          "required": true,
+          "type": "numberInput"
+        },
+        "grossRevenues.2019.pnlRevenueQ2Q4": {
+          "label": "P&L Revenue Calculated for (Q2-Q4)",
+          "order": 8,
+          "required": true,
+          "type": "numberInput"
+        },
+        "grossRevenues.2019.q1Revenue": {
+          "label": "Revenue Input for Q1",
+          "order": 1,
+          "required": true,
+          "type": "numberInput"
+        },
+        "grossRevenues.2019.q2Revenue": {
+          "label": "Revenue Input for Q2",
+          "order": 2,
+          "required": true,
+          "type": "numberInput"
+        },
+        "grossRevenues.2019.q3Revenue": {
+          "label": "Revenue Input for Q3",
+          "order": 3,
+          "required": true,
+          "type": "numberInput"
+        },
+        "grossRevenues.2019.q4Revenue": {
+          "label": "Revenue Input for Q4",
           "order": 4,
-          "type": "selectOne"
+          "required": true,
+          "type": "numberInput"
+        },
+        "grossRevenues.2019.totalRevenue": {
+          "label": "Total P&L Revenue (Q1-Q4)",
+          "order": 5,
+          "required": false,
+          "type": "numberInput"
+        },
+        "grossRevenues.2020.grossAnnualRevenue": {
+          "label": "Gross Annual Revenue (GAR) 2020",
+          "order": 14,
+          "required": true,
+          "type": "numberInput"
+        },
+        "grossRevenues.2020.percentDiff": {
+          "label": "Percent Difference Calculated (GAR v. P&L)",
+          "order": 15,
+          "required": true,
+          "type": "numberInput"
+        },
+        "grossRevenues.2020.pnlRevenueQ2Q4": {
+          "label": "P&L Revenue Calculated for (Q2-Q4)",
+          "order": 16,
+          "required": true,
+          "type": "numberInput"
+        },
+        "grossRevenues.2020.q1Revenue": {
+          "label": "Revenue Input for Q1",
+          "order": 9,
+          "required": true,
+          "type": "numberInput"
+        },
+        "grossRevenues.2020.q2Revenue": {
+          "label": "Revenue Input for Q2",
+          "order": 10,
+          "required": true,
+          "type": "numberInput"
+        },
+        "grossRevenues.2020.q3Revenue": {
+          "label": "Revenue Input for Q3",
+          "order": 11,
+          "required": true,
+          "type": "numberInput"
+        },
+        "grossRevenues.2020.q4Revenue": {
+          "label": "Revenue Input for Q4",
+          "order": 12,
+          "required": true,
+          "type": "numberInput"
+        },
+        "grossRevenues.2020.totalRevenue": {
+          "label": "Total P&L Revenue (Q1-Q4)",
+          "order": 13,
+          "required": false,
+          "type": "numberInput"
+        },
+        "result": {
+          "label": "Result",
+          "order": 18,
+          "required": true,
+          "type": "numberInput"
+        },
+        "revenueDeclinePercentage": {
+          "label": "Revenue Decline Percentage",
+          "order": 17,
+          "required": true,
+          "type": "numberInput"
         }
       },
-      "itemType": "FormDataProperty",
-      "limits": null,
-      "listStyle": null,
-      "name": "grant info",
+      "itemType": "GrantRevenueProperty",
+      "listStyle": "listStyle2",
+      "name": "revenue calculation",
       "required": true,
-      "requiredValidated": false,
-      "section": "business info - 2",
+      "requiredValidated": true,
+      "section": "revenue calculation",
       "subTitle": null,
-      "title": "How can we help you",
+      "title": "Revenue Decline Calculation",
+      "valid": false,
+      "validated": false,
+      "value": null,
+      "valueValidated": false
+    },
+    {
+      "access": {
+        "borrowerEditable": true,
+        "borrowerViewable": true,
+        "reviewerEditable": false,
+        "reviewerViewable": true
+      },
+      "dataType": "plaidtoken",
+      "displayProperties": {
+        "displayName": null,
+        "guidance": null,
+        "help": null,
+        "meta": {
+          "HEADER": "We need some bank details",
+          "LINE1": "PLAID will be used to grab some bank information",
+          "LINE2": "You will be redirected to the PLAID system.",
+          "LINE3": "Please select your bank account. The funds will be disbursed to this account and debited from this account over-time."
+        }
+      },
+      "encrypted": false,
+      "encryptionRequired": true,
+      "itemType": "PlaidTokenProperty",
+      "limits": null,
+      "name": "plaidToken",
+      "required": true,
+      "requiredValidated": true,
+      "section": "ownership info",
       "valid": true,
       "validated": false,
       "value": {
-        "amountRequested": 0,
-        "annualGrossReceipts2019": 0,
-        "grantPurpose": "Employee expenses",
-        "numberFullTimeEmployees2020": 0,
-        "numberJobsCreated2020": 0,
-        "numberJobsRetained2020": 0,
-        "numberPartTimeEmployees2020": 0,
-        "willGrantCreateNewJobs": "Yes"
+        "accessToken": "Vc3LeUQFJLpwn1Ju8axTYZnuWJATt+VNC0/EgaXdU2r59w14YviQhYQqt/qG/ecVx0yuTk/KERS+8ZQ1H66hlqJHxIT9BhtvS0gGVYQeYoxUb+5mS6BtN1+fN3uK999S",
+        "assetInformation": {
+          "assetReportPdfUrl": "5d0e0528-e634-4a71-8be7-32538b323841_31018507-c953-4ff2-bcd1-5d93846104e7.pdf",
+          "report": "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",
+          "reportId": null,
+          "reportToken": null
+        },
+        "authInformation": "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",
+        "financialInstruments": [
+          {
+            "accountNumber": "Lquh2ESBhQDtpemz06gVzX1y8FGwNzPWFZY3kKLAizOGZVkUd9C/smxP8zmGe8Vq",
+            "associatedBankName": "Chase",
+            "associatedCustomerName": "Alberta Bobbeth Charleson",
+            "bankAccountType": "CHECKING",
+            "healthAssessment": null,
+            "healthAssessmentCode": null,
+            "id": "j4yg3abXn9hMQNoJ73xntE1kWyQPb9iyQDE63",
+            "maskedAccountNumber": "921",
+            "maskedRoutingNumber": "820",
+            "routingNumber": "DD62alLIQbAJgPPobNIu2BTgoQ2k4HgclENNwLcUPuVgUvffxmh8MEOLiBB7dc/L"
+          },
+          {
+            "accountNumber": "lns7ShB/FwsdFefgA6OrRzrJwlS1sR1o/fi6YkrgHJ0za2IxWG3/tYQAy9MNuNsZ",
+            "associatedBankName": "Chase",
+            "associatedCustomerName": "Alberta Bobbeth Charleson",
+            "bankAccountType": "SAVINGS",
+            "healthAssessment": null,
+            "healthAssessmentCode": null,
+            "id": "7nZVvep3DxUQKRyWANPntrEGx9jRpWfNweZd9",
+            "maskedAccountNumber": "921",
+            "maskedRoutingNumber": "820",
+            "routingNumber": "mZZp3DF027l6x9+t4eKy2KnQwBFFLTo+ztUpwr4MpBZWL+C3JEzBfw4CiLpDwmpx"
+          }
+        ],
+        "plaidLinkage": {
+          "itemId": null,
+          "linkExpiryDate": null,
+          "linkToken": null,
+          "plaidNotLinkable": false,
+          "publicToken": null
+        },
+        "selectedFinancialInstrumentIndex": 0
       },
       "valueValidated": true
+    },
+    {
+      "access": null,
+      "dataType": "financialinstrument",
+      "displayProperties": null,
+      "encrypted": false,
+      "encryptionRequired": true,
+      "format": {},
+      "itemType": "FinancialInstrumentProperty",
+      "limits": null,
+      "name": "bankAccount",
+      "required": true,
+      "requiredValidated": true,
+      "section": "ownership info",
+      "valid": true,
+      "validated": false,
+      "value": null,
+      "valueValidated": true
+    },
+    {
+      "access": null,
+      "dataType": "contractdocument",
+      "displayProperties": null,
+      "encrypted": false,
+      "encryptionRequired": false,
+      "format": null,
+      "itemType": "ContractDocumentProperty",
+      "limits": null,
+      "name": "contract",
+      "required": false,
+      "requiredValidated": false,
+      "section": "contract",
+      "valid": false,
+      "validated": false,
+      "value": {
+        "documentTemplate": "1.htm",
+        "documentTemplateName": "Contract",
+        "expiresAt": null,
+        "originalDocumentTemplate": null,
+        "provider": "docusign",
+        "referenceId": null,
+        "signers": null
+      },
+      "valueValidated": false
     }
   ],
   "applicationId": "98c4d7e2-cf9c-4f90-9fb6-1cc8db30582a",
