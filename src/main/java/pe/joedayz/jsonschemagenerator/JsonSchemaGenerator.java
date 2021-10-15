@@ -105,10 +105,16 @@ public class JsonSchemaGenerator {
 
                 } else {
                     node = jsonNode.get(key).get(0);
-                    LOGGER.info(key + " is an array with value of " + node.toString());
-                    result.append("array\", \"items\": { \"properties\":");
-                    result.append(outputAsString(null, null, node.toString(), JsonNodeType.ARRAY));
-                    result.append("}},");
+                    if(node!=null) {
+                        LOGGER.info(key + " is an array with value of " + node.toString());
+                        result.append("array\", \"items\": { \"properties\":");
+                        result.append(outputAsString(null, null, node.toString(), JsonNodeType.ARRAY));
+                        result.append("}},");
+                    }else{
+                        result.append("array\", \"items\": { }");
+                        result.append("},");
+                    }
+
                 }
                 break;
             case BOOLEAN:
@@ -216,7 +222,8 @@ public class JsonSchemaGenerator {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }else{
+            }
+            else if (nodeType.name().equals("NULL")) {
                 result.append("\"format\" : { \"type\": \"null\" ");
             }
 
@@ -226,11 +233,15 @@ public class JsonSchemaGenerator {
 
         JsonNode valueThen = ifThen.getThenProperty().getValue();
 
+
+
         if(valueThen!=null) {
 
             nodeType = valueThen.getNodeType();
 
             if (nodeType.name().equals("OBJECT")) {
+
+
                 result.append("\"value\" : { \"type\": \"object\", \"properties\": ");
 
                 try {
@@ -239,14 +250,28 @@ public class JsonSchemaGenerator {
                     e.printStackTrace();
                 }
 
-            } else if (nodeType.name().equals("NULL")) {
+            } else if (nodeType.name().equals("ARRAY")){
+
+
+                result.append("\"value\" : { \"type\": \"object\", \"properties\": ");
+
+                try {
+                    result.append(outputAsString(null, null, valueThen.toString(), nodeType));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            else if (nodeType.name().equals("NULL")) {
+
+
+
                 result.append("\"value\" : { \"type\": \"null\" ");
             }
 
         }
 
 
-        result.append("}}}  },");
+        result.append("}}}},");
     }
 
     private static void generateIfThenForDataTypeItemTypeAndName(IfThen ifThen, String fieldName, JsonNode field) {
