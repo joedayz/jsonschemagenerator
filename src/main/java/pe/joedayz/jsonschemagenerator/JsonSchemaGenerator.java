@@ -68,6 +68,7 @@ public class JsonSchemaGenerator {
 
         LOGGER.info(key + " node type " + nodeType + " with value " + jsonNode.get(key));
         JsonNode node = null;
+        int indice = 0;
         switch (nodeType) {
             case ARRAY:
 
@@ -130,14 +131,20 @@ public class JsonSchemaGenerator {
                 result.append("},");
                 break;
             case NULL:
-                result.append("null\" },");
-                break;
             case STRING:
-                result.append("string\" },");
+                supportStringOrNull(result);
                 break;
         }
 
         return result.toString();
+    }
+
+    private static void supportStringOrNull(StringBuilder result) {
+        int indice;
+        result.toString();
+        indice = result.lastIndexOf(":");
+        result.replace(indice + 1, indice + 3, "");
+        result.append(" [ \"string\", \"null\" ] },");
     }
 
     private static void builtPropertiesForApplicationFeatures(JsonNode jsonNode, String key, StringBuilder result, Map<String, Object> properties, LinkedList<IfThen> ifThenStack) {
